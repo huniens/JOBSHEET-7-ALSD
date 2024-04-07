@@ -27,7 +27,7 @@ public class Sorting {
             System.out.println("Data tidak ditemukan");
         }
             
-    }
+        }
 
     public static int binarySearchAsc(int[] arr, int key) {
         int start = 0, end = arr.length -1;

@@ -16,10 +16,12 @@ public class PencarianMhs {
     }
 
     void tampil() {
-        for(Mahasiswa m: listMHs) {
-            m.tampil();
-            System.out.println("----------------------------");
-    }
+        for (Mahasiswa m : listMHs) {
+            if (m != null) {
+                m.tampil();
+                System.out.println("----------------------------");
+            }
+        }
     }
 
     public int FindSeqSearch(int cari) {
@@ -55,18 +57,27 @@ public class PencarianMhs {
         }
     }
 
-    public int FindBinarySearch(int cari, int left, int right) {
+    public int FindBinarySearchByNama(String cari, int left, int right) {
         int mid;
         if (right >= left) {
-            mid = (left + right) /2;
-            if (cari == listMHs[mid].nim) {
-                return(mid);
-            } else if (listMHs[mid].nim > cari) {
-                return FindBinarySearch(cari, left, mid -1);
+            mid = (left + right) / 2;
+            int compareResult = cari.compareTo(listMHs[mid].nama);
+            if (compareResult == 0) {
+                return mid;
+            } else if (compareResult < 0) {
+                return FindBinarySearchByNama(cari, left, mid - 1);
             } else {
-                return FindBinarySearch(cari, mid + 1, right);
+                return FindBinarySearchByNama(cari, mid + 1, right);
             }
         }
         return -1;
+    }
+    public void TampilDataByNama(String nama) {
+        for(Mahasiswa m : listMHs) {
+            if (m != null && m.nama.equals(nama)) {
+                m.tampil();
+                System.out.println("----------------------------------------------------");
+            }
+        }
     }
 }
