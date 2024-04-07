@@ -54,4 +54,19 @@ public class PencarianMhs {
             System.out.println("data " + x + "tidak ditemukan");
         }
     }
+
+    public int FindBinarySearch(int cari, int left, int right) {
+        int mid;
+        if (right >= left) {
+            mid = (left + right) /2;
+            if (cari == listMHs[mid].nim) {
+                return(mid);
+            } else if (listMHs[mid].nim > cari) {
+                return FindBinarySearch(cari, left, mid -1);
+            } else {
+                return FindBinarySearch(cari, mid + 1, right);
+            }
+        }
+        return -1;
+    }
 }

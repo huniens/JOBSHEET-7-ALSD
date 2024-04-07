@@ -10,7 +10,9 @@ public class MahasiswaMain {
         Scanner sl = new Scanner(System.in);
 
         PencarianMhs data = new PencarianMhs();
-        int jumMhs = 5;
+        System.out.println("Masukkan jumlah Mahasiswa : ");
+        int jumMhs = s.nextInt();
+
 
         System.out.println("---------------------------------------------------------");
         System.out.println("Masukkan data mahasiswa secara Urut dari NIM terkecil");
@@ -42,6 +44,12 @@ public class MahasiswaMain {
         System.out.println("menggunakan sequential Search");
         int posisi = data.FindSeqSearch(cari);
 
+        data.Tampilposisi(cari, posisi);
+        data.TampilData(cari, posisi);
+
+        System.out.println("==============================================");
+        System.out.println("menggunakan binary Search");
+        posisi = data.FindBinarySearch(cari, 0, jumMhs -1);
         data.Tampilposisi(cari, posisi);
         data.TampilData(cari, posisi);
     }
